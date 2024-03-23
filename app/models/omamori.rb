@@ -1,0 +1,2 @@
+class Omamori < ApplicationRecord
+end
