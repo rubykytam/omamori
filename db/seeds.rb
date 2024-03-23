@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'open-uri'
-Omamori.destory_all
+Omamori.destroy_all
 omamori1 = Omamori.new(name: "testing1", jinja:"jinja1")
 photo1 = URI.open("https://actindi.net/wp-content/uploads/2019/01/IMG_1119.jpg")
 omamori1.photos.attach(io: photo1, filename: "omamori.jpg", content_type: "image/jpg")

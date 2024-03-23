@@ -6,7 +6,7 @@ class CreateOmamoris < ActiveRecord::Migration[7.1]
       t.string :address
       t.integer :price
       t.date :buying_date
-      t.string :tags
+      t.string :tags, array: true
       t.string :color
       t.string :rieki
 
