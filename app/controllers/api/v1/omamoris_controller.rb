@@ -5,7 +5,7 @@ class Api::V1::OmamorisController < ApplicationController
     else
      @omamoris = Omamori.all
     end
-    render json: @omamoris.order(created_at: :desc).as_json(methods: [:photo_urls]), status: :ok
+    render json: @omamoris.order(created_at: :desc), status: :ok
   end
 
   def create
@@ -20,6 +20,6 @@ class Api::V1::OmamorisController < ApplicationController
   private
 
   def omamori_params
-    params.require(:omamori).permit(:jinja, photos_url: [], tags: [])
+    params.require(:omamori).permit(:jinja, :photo_url, tags: [])
   end
 end
