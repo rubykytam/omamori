@@ -20,6 +20,6 @@ class Api::V1::OmamorisController < ApplicationController
   private
 
   def omamori_params
-    params.require(:omamori).permit(:jinja, photos: [], tags: [])
+    params.require(:omamori).permit(:jinja, photos_url: [], tags: [])
   end
 end
