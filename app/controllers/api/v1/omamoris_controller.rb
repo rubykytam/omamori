@@ -1,9 +1,9 @@
 class Api::V1::OmamorisController < ApplicationController
   def index
     if params[:search].present?
-      @omamoris = Omamori.where("jinja ILIKE :search OR color ILIKE :search OR :search = ANY(tags)", search: "%#{params[:search]}%")
+      @omamoris = Omamori.where("jinja ILIKE :search OR :search = ANY(tags)", search: "%#{params[:search]}%")
     else
-     @omamoris = Omamori.all
+      @omamoris = Omamori.all
     end
     render json: @omamoris.order(created_at: :desc), status: :ok
   end
