@@ -2,7 +2,7 @@ class Api::V1::OmamorisController < ApplicationController
   def index
     if params[:search].present?
       search_term = params[:search]
-      @omamoris = Omamori.where("jinja ILIKE :search OR tags @> ARRAY[?]::varchar[]", "%#{search_term}%", search_term)
+      @omamoris = Omamori.where("jinja ILIKE :search OR :search = ANY(tags)", search: "%#{search_term}%")
     else
       @omamoris = Omamori.all
     end
